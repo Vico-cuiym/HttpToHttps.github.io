@@ -13,13 +13,9 @@
 
 * 2、进入JDK安装路径 , 以我为例 : C:\Program Files\Java\jdk1.8.0_161\bin;<br>
 进入该目录 , 执行如下命令 : `keytool -genkeypair -alias "tomcat" -keyalg "RSA" -keystore "D:\tomcat.keystore"` ;
-
 ![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/cmd.png)<br>
-
 接着填写一些基本信息<br>
-
 ![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/keytool.png)<br>
-
 简单介绍下填写的内容
 <pre><code>密钥库口令:123456（这个密码非常重要 , 后面会用到）
 名字与姓氏:127.0.0.1（以后访问的域名或IP地址，非常重要，证书和域名或IP绑定）
@@ -27,8 +23,8 @@
 组织名称:anything（随便填 , 可以直接按回车）
 城市:anything（随便填 , 可以直接按回车）
 省市自治区:anything（随便填 , 可以直接按回车）
-国家地区代码:anything（随便填 , 可以直接按回车）</code></pre>
-* 3、配置Tomcat服务器<br>
+国家地区代码:anything（随便填 , 可以直接按回车）</code></pre><br>
+* 3、配置Tomcat服务器
     * 3.1、打开Tomcat中的配置文件 , 以我为例 : E:/WorkingSoftware/apache-tomcat-6.0.29/conf/server.xml
     <pre><code>&lt;!--
     &lt;Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
