@@ -1,2 +1,2 @@
-HttpToHttps.github.io
+HttpToHttps.github
 =====================
