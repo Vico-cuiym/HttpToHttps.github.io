@@ -14,7 +14,7 @@
 ![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/imgs/cmd.png)<br>
 接着填写一些基本信息<br>
 ![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/imgs/keytool.png)<br>
-简单介绍下填写的内容
+简单介绍下填写的内容<br>
 <pre><code>密钥库口令:123456（这个密码非常重要 , 后面会用到）
 名字与姓氏:127.0.0.1（以后访问的域名或IP地址，非常重要，证书和域名或IP绑定）
 组织单位名称:anything（随便填 , 可以直接按回车）
