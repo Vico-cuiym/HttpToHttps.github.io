@@ -9,13 +9,13 @@
 ## 本地配置
 * 1、Ctrl + R 打开命令 , 进入 cmd 控制台 <br>
 
-![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/Ctrl%2BR.png)
+![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/imgs/Ctrl%2BR.png)
 
 * 2、进入JDK安装路径 , 以我为例 : C:\Program Files\Java\jdk1.8.0_161\bin;<br>
 进入该目录 , 执行如下命令 : `keytool -genkeypair -alias "tomcat" -keyalg "RSA" -keystore "D:\tomcat.keystore"` ;
-![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/cmd.png)<br>
+![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/imgs/cmd.png)<br>
 接着填写一些基本信息<br>
-![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/keytool.png)<br>
+![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/imgs/keytool.png)<br>
 简单介绍下填写的内容
 <pre><code>密钥库口令:123456（这个密码非常重要 , 后面会用到）
 名字与姓氏:127.0.0.1（以后访问的域名或IP地址，非常重要，证书和域名或IP绑定）
@@ -41,8 +41,13 @@
     >其实就是添加`keystoreFile`和`keystorePass`两个属性 
     >>`keystoreFile`为生成证书地址 , 建议放在启动的Tomcat中
     >>`keystorePass`为密钥库口令
-    * 3.3、注释Tomcat路径中conf\server.xml文件中下面一行。<br>
-    <code><pre>&lt;!--&lt;Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener"/&gt;--&gt;</code></pre>
+    * 3.3、注释Tomcat路径中conf\server.xml文件中下面一行。
+    <code><pre>
+    &lt;!--&lt;Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener"/&gt;--&gt;
+    </code></pre>
+    * 最后访问链接：https://127.0.0.1:8443/项目名称/ , 就可以看见https的安全认证页面了
+    ![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/imgs/Privatelink.png.png)<br>
+
 
 # 🚨以下为参考文档🚨
 [安装JDK的教程](https://jingyan.baidu.com/article/6dad5075d1dc40a123e36ea3.html)<br>
