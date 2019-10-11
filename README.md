@@ -41,8 +41,8 @@
     >其实就是添加`keystoreFile`和`keystorePass`两个属性 
     >>`keystoreFile`为生成证书地址 , 建议放在启动的Tomcat中
     >>`keystorePass`为密钥库口令
-    * 3.3、注释Tomcat路径中conf\server.xml文件中下面一行。
-<code><pre>&lt;!--&lt;Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener"/&gt;--&gt;</code></pre>
+    * 3.3、注释Tomcat路径中conf\server.xml文件中下面一行。<br>
+    <code><pre>&lt;!--&lt;Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener"/&gt;--&gt;</code></pre>
 
 # 🚨以下为参考文档🚨
 [安装JDK的教程](https://jingyan.baidu.com/article/6dad5075d1dc40a123e36ea3.html)<br>
