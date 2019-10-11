@@ -7,14 +7,18 @@
 * 四、HTTP 的连接很简单，是无状态的；HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证的网络协议，比 HTTP 协议安全。
 
 ## 本地配置
-* 1、Ctrl + R 打开命令 , 进入 cmd 控制台 
+* 1、Ctrl + R 打开命令 , 进入 cmd 控制台 <br>
+
 ![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/Ctrl%2BR.png)
 
 * 2、进入JDK安装路径 , 以我为例 : C:\Program Files\Java\jdk1.8.0_161\bin;<br>
 进入该目录 , 执行如下命令 : `keytool -genkeypair -alias "tomcat" -keyalg "RSA" -keystore "D:\tomcat.keystore"` ;
+
 ![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/cmd.png)<br>
+
 接着填写一些基本信息
-![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/keytool.png)
+
+![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/keytool.png)<br>
 简单介绍下填写的内容
 <pre><code>密钥库口令:123456（这个密码非常重要 , 后面会用到）
 名字与姓氏:127.0.0.1（以后访问的域名或IP地址，非常重要，证书和域名或IP绑定）
