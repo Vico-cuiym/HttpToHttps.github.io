@@ -12,7 +12,7 @@
 ![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/imgs/Ctrl%2BR.png)
 
 * 2、进入JDK安装路径 , 以我为例 : C:\Program Files\Java\jdk1.8.0_161\bin;<br>
-进入该目录 , 执行如下命令 : `keytool -genkeypair -alias "tomcat" -keyalg "RSA" -keystore "D:\tomcat.keystore"` ;
+进入该目录 , 执行如下命令 : `keytool -genkeypair -alias "tomcat" -keyalg "RSA" -keystore "D:\tomcat.keystore"` ;<br>
 ![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/imgs/cmd.png)<br>
 接着填写一些基本信息<br>
 ![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/imgs/keytool.png)<br>
