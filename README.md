@@ -28,14 +28,14 @@
 省市自治区:anything（随便填 , 可以直接按回车）
 国家地区代码:anything（随便填 , 可以直接按回车）</code></pre>
 
-* 3、配置Tomcat服务器<br>
-    * 3.1、打开Tomcat中的配置文件 , 以我为例 : E:/WorkingSoftware/apache-tomcat-6.0.29/conf/server.xml
+    * 3、配置Tomcat服务器<br>
+        * 3.1、打开Tomcat中的配置文件 , 以我为例 : E:/WorkingSoftware/apache-tomcat-6.0.29/conf/server.xml
 <pre><code>&lt;!--
 &lt;Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
               maxThreads="150" scheme="https" secure="true"
               clientAuth="false" sslProtocol="TLS"/&gt;
 --&gt;</code></pre>
-    * 3.2、去掉注释且修改参数
+        * 3.2、去掉注释且修改参数
 <pre><code>
 &lt;Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
               maxThreads="150" scheme="https" secure="true"
@@ -45,7 +45,7 @@
 >其实就是添加`keystoreFile`和`keystorePass`两个属性 
 >>`keystoreFile`为生成证书地址 , 建议放在启动的Tomcat中
 >>`keystorePass`为密钥库口令
-    * 3.3、注释Tomcat路径中conf\server.xml文件中下面一行。
+        * 3.3、注释Tomcat路径中conf\server.xml文件中下面一行。
 <code><pre>&lt;!--&lt;Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener"/&gt;--&gt;</code></pre>
 
 #                                       🚨以下为参考文档🚨
