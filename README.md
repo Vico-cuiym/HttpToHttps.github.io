@@ -28,7 +28,6 @@
 城市:anything（随便填 , 可以直接按回车）
 省市自治区:anything（随便填 , 可以直接按回车）
 国家地区代码:anything（随便填 , 可以直接按回车）</code></pre>
-
 * 3、配置Tomcat服务器<br>
     * 3.1、打开Tomcat中的配置文件 , 以我为例 : E:/WorkingSoftware/apache-tomcat-6.0.29/conf/server.xml
     <pre><code>&lt;!--
