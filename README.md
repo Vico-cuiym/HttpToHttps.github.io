@@ -46,7 +46,7 @@
     &lt;!--&lt;Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener"/&gt;--&gt;
     </code></pre>
     * 最后访问链接：https://127.0.0.1:8443/项目名称/ , 就可以看见https的安全认证页面了<br>
-    ![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/imgs/Privatelink.png.png)<br>
+    ![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/imgs/Privatelink.png)<br>
 
 
 # 🚨以下为参考文档🚨
