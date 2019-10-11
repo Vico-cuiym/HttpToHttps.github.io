@@ -1,52 +1,56 @@
-HttpToHttps.github
-=====================
-# HTML5 Demos and Examples
+# Tomcat配置Https请求
 
-A collection of HTML5 experiments I've created, now open source and on GitHub, so please go ahead and help me hack this resource in to a wealth of demos that other authors can learn from.
+## HTTPS和HTTP的区别<br>
+* 一、HTTP 是超文本传输协议，信息是明文传输，HTTPS 则是具有安全性的 SSL 加密传输协议。
+* 二、HTTPS 协议需要到 CA 申请证书，一般免费证书很少，需要交费。
+* 三、HTTP 和 HTTPS 使用的是完全不同的连接方式，用的端口也不一样，前者是 80，后者是 443。
+* 四、HTTP 的连接很简单，是无状态的；HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证的网络协议，比 HTTP 协议安全。
 
-**🚨 THIS PROJECT IS NOW RETIRED - YOU WILL FIND WORKING CODE, BUT IT IS NO LONGER LIVE OR MAINTAINED 🚨**
+## 本地配置
+* 1、Ctrl + R 打开命令 , 进入 cmd 控制台 
+![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/Ctrl%2BR.png)
 
-## Aim
+* 2、进入JDK安装路径 , 以我为例 : C:\Program Files\Java\jdk1.8.0_161\bin;<br>
+进入该目录 , 执行如下命令 : `keytool -genkeypair -alias "tomcat" -keyalg "RSA" -keystore "D:\tomcat.keystore"` ;
+![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/cmd.png)<br>
+接着填写一些基本信息
+![Image text](https://github.com/Vico-cuiym/HttpToHttps.github.io/blob/master/keytool.png)
+简单介绍下填写的内容
+<pre><code>密钥库口令:123456（这个密码非常重要 , 后面会用到）
+名字与姓氏:127.0.0.1（以后访问的域名或IP地址，非常重要，证书和域名或IP绑定）
+组织单位名称:anything（随便填 , 可以直接按回车）
+组织名称:anything（随便填 , 可以直接按回车）
+城市:anything（随便填 , 可以直接按回车）
+省市自治区:anything（随便填 , 可以直接按回车）
+国家地区代码:anything（随便填 , 可以直接按回车）</code></pre>
 
-* If a user can hit view source on the demo, then we've done our job
-* Where possible browser support should be named (FF3.5, etc)
-* All content is open source and content is [Creative Commons Share Alike 2.0](http://creativecommons.org/licenses/by-sa/2.0/uk/)
-* Individual demos, if authored by someone other than [@rem](http://twitter.com) can be credited as appropriate
+* 3、配置Tomcat服务器<br>
+    * 3.1、打开Tomcat中的配置文件 , 以我为例 : E:/WorkingSoftware/apache-tomcat-6.0.29/conf/server.xml
+<pre><code>&lt;!--
+&lt;Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
+              maxThreads="150" scheme="https" secure="true"
+              clientAuth="false" sslProtocol="TLS"/&gt;
+--&gt;</code></pre>
+   * 3.2、去掉注释且修改参数
+<pre><code>
+&lt;Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
+              maxThreads="150" scheme="https" secure="true"
+              clientAuth="false" sslProtocol="TLS" 
+              keystoreFile="D:/tomcat.keystore" keystorePass="123456789"/&gt;
+</code></pre>
+>其实就是添加`keystoreFile`和`keystorePass`两个属性 
+>>`keystoreFile`为生成证书地址 , 建议放在启动的Tomcat中
+>>`keystorePass`为密钥库口令
+* 3.3、注释Tomcat路径中conf\server.xml文件中下面一行。
+<code><pre>&lt;!--&lt;Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener"/&gt;--&gt;</code></pre>
 
-# Creating new demos
+# 🚨以下为参考文档🚨
+[安装JDK的教程](https://jingyan.baidu.com/article/6dad5075d1dc40a123e36ea3.html)<br>
+[安装Tomcat教程](https://jingyan.baidu.com/article/00a07f3872af0982d028dcb3.html)<br>
+[keytool常见用法](https://www.cnblogs.com/benio/archive/2010/09/15/1826990.html)<br>
+[Tomcat各属性详解](https://blog.csdn.net/weixin_33946605/article/details/92438866)<br>
 
-If the demo should take the default style - currently grey and dull - but it keeps the focus on the code ;) then follow these instructions. Otherwise, simply create the file in the root directory calling it [yourdemo].html and include it in the index.php.
 
-Instructions to creating a new demo:
 
-* Create a .html in the /demos directory
-* Use the following template (also a sample in /demos/template.html):
 
-<pre><code>&lt;title&gt;&lt;!-- Title of your demo, note this appears in the document title prefixed with &quot;HTML5 Demo:&quot; --&gt;&lt;/title&gt;
-&lt;style&gt;/** any custom styles live here **/&lt;/style&gt;
-&lt;article&gt;&lt;!-- any demo markup here --&gt;&lt;/article&gt;
-&lt;script&gt;
-// your JavaScript
-&lt;/script&gt;</code></pre>
 
-* When requesting the demo, use html5demos.com/[yourdemo] and page.php will top and tail your page
-* Any additional JavaScript libraries should be stored in the /js directory, assets, such as video and audio live in the /assets directory.
-
-That should be it. 
-
-By submitting any code, you're also agreeing that your code is covered by the MIT-LICENSE that this project is covered by, and all content is covered by Creative Commons Share Alike 2.0 - as is all of this project: it's all about sharing baby!
-
-# TODO
-
-## Demos Required
-
-* Microdata
-* SVG
-* More audio and video demos
-* More introductions to canvas
-* More event based stuff
-* WebSockets (@rem - have a demo ready, but not the server side)
-
-## Misc
-
-* Clearer versioning on the demos, rather than "All bar Opera", should include last version to support feature, i.e. Opera 10.10b, Chrome 4 dev, Safari 4.0, etc.
